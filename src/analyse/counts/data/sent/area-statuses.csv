@@ -1,73 +1,80 @@
 coroner_area,no. PFDs,no. recipients,no. replies,no. complete responses,no. partial responses,no. overdue responses,no. pending responses,no. failed parses
-Greater Manchester South,57,74,57,27,3,13,0,11
-London Inner North,28,41,33,19,3,3,0,1
-London East,22,24,14,8,1,7,0,5
-"West Sussex, Brighton and Hove",19,16,13,7,2,3,0,5
-Surrey,17,20,5,4,0,7,0,5
-London Inner South,16,19,11,4,1,5,1,4
-County Durham and Darlington,15,18,13,6,1,2,0,3
-Essex,14,22,11,8,1,4,1,0
-Cornwall and the Isles of Scilly,13,23,16,3,3,5,0,1
-Suffolk,11,11,10,6,1,0,0,4
-Avon,11,15,6,3,1,5,0,0
-Birmingham and Solihull,11,20,14,6,0,3,0,2
-Yorkshire West Eastern,10,7,6,3,1,2,0,3
-North Wales (East & Central),10,8,6,4,0,2,0,1
-Nottinghamshire,10,15,5,2,1,4,0,2
-Yorkshire South West,9,10,5,4,0,2,2,1
-Greater Manchester North,9,10,9,5,0,2,0,0
-Lancashire and Blackburn with Darwen,9,10,3,2,0,6,0,0
-Greater Manchester West,9,6,5,2,0,3,0,1
-"Hampshire, Portsmouth and Southampton",9,13,9,4,2,2,0,1
-London West,8,12,9,5,0,2,0,1
-Kent Mid and Medway,8,7,5,5,0,1,0,2
-Bedfordshire and Luton,8,11,3,3,0,4,0,1
-Norfolk,8,9,8,6,0,1,0,0
-South Wales Central,8,12,9,4,1,2,0,1
-Staffordshire and Stoke-on-Trent,8,12,7,4,0,4,0,0
-Blackpool and Fylde,7,7,5,4,1,1,0,1
-Liverpool and the Wirral,7,7,3,2,1,3,0,0
-Milton Keynes,7,7,4,3,0,3,0,1
-Kent North East,6,7,4,3,0,2,0,0
-Gwent,6,8,4,3,0,3,0,0
-Lincolnshire,6,12,4,1,1,4,0,0
-Dorset,6,6,4,3,0,1,0,1
-Derby and Derbyshire,6,12,6,2,2,2,0,0
-Cumbria,5,4,3,2,0,1,0,2
-"Plymouth, Torbay and South Devon",5,4,3,3,0,1,0,0
-The Black Country Jurisdiction,5,7,5,3,0,2,0,0
-Newcastle and North Tyneside,5,5,2,1,1,2,0,1
-Manchester City,5,5,3,2,0,1,0,2
-Yorkshire West Western,5,4,4,2,0,2,0,0
-London North,5,2,2,2,0,0,0,1
-Swansea and Neath Port Talbot,4,3,3,2,0,0,0,1
-Northamptonshire,3,4,2,2,0,1,0,0
-Sunderland,3,1,1,1,0,0,0,1
-"Shropshire, Telford and Wrekin",3,4,4,3,0,0,0,0
-Cheshire,3,8,3,1,1,1,0,0
-Oxfordshire,3,4,4,2,0,0,0,0
-Warwickshire,3,3,2,2,0,1,0,0
-Hertfordshire,3,3,3,2,0,0,0,1
-Berkshire,3,4,1,1,0,2,0,0
-North West Wales,3,1,1,1,0,0,0,2
-Leicester City and South Leicestershire,3,0,0,0,0,0,0,0
-Yorkshire South East,3,3,3,3,0,0,0,0
-Wiltshire and Swindon,2,1,1,1,0,0,0,0
-East Sussex,2,2,5,0,0,2,0,0
-Gloucestershire,2,3,1,0,0,2,0,0
-East Riding of Yorkshire and Kingston-upon-Hull,2,1,1,1,0,0,0,1
-London South,2,1,1,1,0,0,0,0
-Isle of Wight,2,0,0,0,0,0,0,1
-Somerset,2,4,1,0,0,1,1,0
-Kent Central and South East,2,2,0,0,0,1,0,0
-North Yorkshire and York,2,0,0,0,0,0,0,1
-Cambridgeshire and Peterborough,2,0,0,0,0,0,0,2
-Buckinghamshire,2,2,2,2,0,0,0,0
-London Inner West,2,2,1,1,0,1,0,0
-Coventry,2,1,1,1,0,0,0,1
-Carmarthenshire and Pembrokeshire,1,1,1,1,0,0,0,0
-"Sefton, Knowsley and St Helens",1,1,0,0,0,1,0,0
-Teesside,1,1,1,1,0,0,0,0
-Kent North West,1,1,0,0,0,1,0,0
-London City,1,0,0,0,0,0,0,0
-Worcestershire,1,0,0,0,0,0,0,0
+Greater Manchester South,114,154,105,59,4,29,1,15
+London Inner North,73,97,57,35,5,21,2,3
+"West Sussex, Brighton and Hove",45,51,31,16,3,12,1,9
+Surrey,40,44,23,12,4,7,1,4
+London Inner South,40,63,41,11,6,9,0,8
+London East,39,43,22,12,1,16,1,8
+Birmingham and Solihull,37,61,43,22,1,8,1,5
+Greater Manchester North,32,44,27,15,1,13,0,1
+Avon,30,33,15,8,1,12,1,3
+Cornwall and the Isles of Scilly,29,43,28,12,3,10,1,1
+Yorkshire West Eastern,29,28,23,10,2,7,0,6
+South Wales Central,29,27,20,15,0,7,0,2
+Norfolk,27,21,17,11,1,4,0,1
+The Black Country Jurisdiction,25,31,20,10,3,8,0,0
+County Durham and Darlington,25,28,15,9,1,7,0,6
+Nottinghamshire,24,25,10,7,1,7,1,6
+Greater Manchester West,23,28,15,9,1,7,0,1
+Essex,22,34,15,7,3,8,1,0
+Suffolk,20,22,8,5,0,5,2,7
+London Inner West,20,21,9,5,0,9,0,0
+North Wales (East & Central),18,15,8,7,0,6,0,2
+"Hampshire, Portsmouth and Southampton",18,23,8,6,1,7,0,1
+Yorkshire West Western,18,27,14,7,2,9,0,0
+Cumbria,18,13,10,8,0,2,1,3
+Yorkshire South West,16,24,9,6,1,7,0,2
+Milton Keynes,16,16,8,5,1,7,0,2
+Bedfordshire and Luton,16,17,7,6,0,7,0,1
+Lincolnshire,15,21,11,7,1,6,0,0
+Dorset,15,23,37,4,2,5,0,4
+Manchester City,15,25,14,2,1,7,0,2
+Cambridgeshire and Peterborough,14,20,8,2,1,5,2,3
+Blackpool and Fylde,14,12,9,9,0,3,0,2
+London West,14,16,8,7,0,4,1,1
+Liverpool and the Wirral,14,9,6,3,1,4,0,2
+Kent Mid and Medway,14,15,7,5,0,6,0,3
+Worcestershire,13,15,11,5,2,3,1,2
+Lancashire and Blackburn with Darwen,13,14,6,5,0,6,0,0
+Derby and Derbyshire,13,22,10,4,4,4,0,0
+Staffordshire and Stoke-on-Trent,12,16,9,6,0,5,0,0
+"Plymouth, Torbay and South Devon",12,10,6,5,1,3,0,1
+Exeter and Greater Devon,12,19,12,5,2,1,1,0
+Gwent,11,11,8,5,0,4,0,2
+Leicester City and South Leicestershire,11,8,9,4,0,1,0,2
+London North,11,5,4,3,0,1,0,2
+Berkshire,10,13,7,2,1,5,0,0
+Sunderland,10,10,4,3,0,5,0,2
+Warwickshire,9,8,6,6,0,2,0,0
+Swansea and Neath Port Talbot,9,11,5,4,0,4,0,1
+Hertfordshire,9,11,11,8,0,0,0,0
+Northamptonshire,8,10,4,3,0,2,1,1
+Cheshire,8,11,11,6,0,2,0,0
+London South,7,10,6,3,1,2,0,1
+Wiltshire and Swindon,7,7,3,2,0,3,0,1
+Kent Central and South East,7,6,4,3,0,1,0,0
+Yorkshire South East,7,10,4,3,0,2,0,0
+"Shropshire, Telford and Wrekin",7,9,5,3,0,3,0,0
+Kent North East,6,10,4,3,0,3,0,0
+East Sussex,5,6,1,1,0,2,1,1
+Oxfordshire,5,2,2,2,0,0,0,0
+Newcastle and North Tyneside,4,2,0,0,0,2,0,2
+Coventry,4,2,2,2,0,0,0,1
+Isle of Wight,4,4,2,0,0,2,0,1
+London City,4,3,2,2,0,1,0,0
+Buckinghamshire,4,3,2,2,0,1,0,0
+Carmarthenshire and Pembrokeshire,4,3,2,2,0,1,0,0
+North Yorkshire and York,3,3,3,2,0,0,0,1
+Teesside,3,3,2,1,0,1,0,0
+Gloucestershire,3,3,3,3,0,0,0,0
+Northumberland North,3,2,2,2,0,0,0,0
+North West Wales,2,2,2,2,0,0,0,0
+Rutland and North Leicestershire,2,4,2,0,0,1,0,0
+Kent North West,2,2,2,2,0,0,0,0
+East Riding of Yorkshire and Kingston-upon-Hull,2,0,0,0,0,0,0,2
+"Sefton, Knowsley and St Helens",2,3,1,0,0,2,0,0
+North Lincolnshire and Grimsby,1,1,1,1,0,0,0,0
+Somerset,1,0,0,0,0,0,0,0
+Herefordshire,1,1,2,1,0,0,0,0
+Hartlepool,1,1,0,0,0,0,1,0
+Gateshead and South Tyneside,1,3,0,0,0,1,0,0
