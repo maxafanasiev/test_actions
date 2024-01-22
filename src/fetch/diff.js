@@ -22,6 +22,7 @@ const readCSV = async (filePath) => {
 
 const compareRecords = (oldRecords, newRecords) => {
     const changes = [];
+    const updateDate = new Date().toISOString();
 
     newRecords.forEach(newRecord => {
         const oldRecord = oldRecords.find(r => r.report_url === newRecord.report_url);
@@ -35,7 +36,11 @@ const compareRecords = (oldRecords, newRecords) => {
             });
 
             if (Object.keys(changedFields).length > 0) {
-                changes.push({report_url: newRecord.report_url, changes: changedFields});
+                changes.push({
+                    report_url: newRecord.report_url,
+                    changes: changedFields,
+                    updated_at: updateDate
+                });
             }
         }
     });
@@ -90,6 +95,6 @@ export async function write_diff_log(log_path) {
     await fs.writeFile(
         log_path,
         `Latest full fetch on ${date.toLocaleDateString()} at ${date.toLocaleTimeString()}, for which:\n` +
-        ` - ${reportUrls.length} reports are changed.\n`
+        ` - ${reportUrls.length} reports changed in the last month.\n`
     );
 }
