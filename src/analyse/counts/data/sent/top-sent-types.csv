@@ -1,31 +1,31 @@
 sent_to,no. PFDs,overdue,pending,received,% received
-NHS England,113,49,5,59,52.2
-Department of Health and Social Care,112,51,2,59,52.7
-Care Quality Commission,40,29,0,11,27.5
-HM Prison and Probation Service,26,15,1,10,38.5
+Department of Health and Social Care,145,72,4,69,47.6
+NHS England,134,61,6,67,50.0
+Care Quality Commission,53,37,0,16,30.2
+HM Prison and Probation Service,32,20,1,11,34.4
+Department for Transport,21,10,0,11,52.4
+Health and Safety Executive,20,10,0,10,50.0
+Home Office,20,14,0,6,30.0
 Ministry of Justice,20,18,0,2,10.0
-Department for Transport,19,10,0,9,47.4
-Health and Safety Executive,19,9,0,10,52.6
-National Institute for Health and Care Excellence,17,13,0,4,23.5
-Home Office,17,11,0,6,35.3
-Network Rail,16,2,0,14,87.5
-Leeds Teaching Hospitals NHS Trust,14,7,0,7,50.0
-Highways England,13,4,0,9,69.2
-Pennine Care NHS Trust,13,6,0,7,53.8
-National Police Chiefs’ Council,13,11,0,2,15.4
-Barts Health NHS Trust,13,5,0,8,61.5
+Leeds Teaching Hospitals NHS Trust,19,7,0,12,63.2
+Network Rail,19,2,0,17,89.5
+National Institute for Health and Care Excellence,19,14,0,5,26.3
+Pennine Care NHS Trust,17,9,0,8,47.1
+Highways England,16,6,0,10,62.5
+Department for Education,14,5,0,9,64.3
+National Police Chiefs’ Council,14,12,0,2,14.3
 College of Policing,13,6,0,7,53.8
+Barts Health NHS Trust,13,5,0,8,61.5
+Norfolk and Suffolk NHS Trust,12,1,0,11,91.7
+Greater Manchester Mental Health NHS Foundation Trust,12,7,0,5,41.7
 Metropolitan Police,12,4,0,8,66.7
-Department for Education,12,5,0,7,58.3
-Norfolk and Suffolk NHS Trust,10,1,0,9,90.0
-Greater Manchester Health & Social Care Partnership,10,5,0,5,50.0
+Medicines and Healthcare Products Regulatory Agency,11,8,0,3,27.3
+Greater Manchester Health & Social Care Partnership,11,6,0,5,45.5
+East London NHS Trust,11,5,0,6,54.5
 Metropolitan Police Service,10,5,0,5,50.0
+Care UK,10,5,0,5,50.0
+Greater Manchester Police,10,1,1,8,80.0
 Birmingham and Solihull Mental Health Foundation Trust,10,5,0,5,50.0
-Greater Manchester Mental Health NHS Foundation Trust,9,6,0,3,33.3
-University Hospitals Plymouth NHS Trust,9,1,0,8,88.9
-Medicines and Healthcare Products Regulatory Agency,9,7,0,2,22.2
-Greater Manchester Police,9,1,1,7,77.8
-ABMU Health Board,9,6,0,3,33.3
-Queen Elizabeth Hospital,9,2,0,7,77.8
-Clinical Commissioning Group,9,3,0,6,66.7
-Worcestershire Acute Hospitals NHS trust,8,3,1,4,50.0
+Clinical Commissioning Group,10,4,0,6,60.0
+Worcestershire Acute Hospitals NHS trust,10,5,1,4,40.0
+Public Health England,9,6,0,3,33.3
