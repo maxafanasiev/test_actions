@@ -66,7 +66,7 @@ export function compareCSVFiles() {
 
 
 function extractFirstColumn(filePath) {
-    const fileContent = fs.readFileSync(filePath);
+    const fileContent = readFileSync(filePath);
     const records = parse(fileContent, {
         columns: true,
         skip_empty_lines: true,
