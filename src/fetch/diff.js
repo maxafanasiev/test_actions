@@ -25,12 +25,12 @@ const compareRecords = (oldRecords, newRecords) => {
     const updateDate = new Date().toISOString();
 
     newRecords.forEach(newRecord => {
-        const oldRecord = oldRecords.find(r => r.report_url === newRecord.report_url);
+        const oldRecord = oldRecords.find(r => r.report_url == newRecord.report_url);
         if (oldRecord) {
             const changedFields = {};
 
             Object.keys(newRecord).forEach(key => {
-                if (newRecord[key] !== oldRecord[key]) {
+                if (newRecord[key] != oldRecord[key]) {
                     changedFields[key] = {old: oldRecord[key], new: newRecord[key]};
                 }
             });
