@@ -132,7 +132,7 @@ const headers = [
 
 write_reports(
     'https://www.judiciary.uk/prevention-of-future-death-reports/',
-    fetchAll ? 'src/data/reports_all.csv' : 'src/data/reports.csv',
+    'src/data/reports.csv',
     'src/data/reports-corrected.csv',
     fetchAll ? 'src/data/full_fetch.log' : 'src/data/latest.log',
     headers,
