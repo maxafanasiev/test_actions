@@ -1,22 +1,16 @@
-import { createReadStream, createWriteStream, promises as fs } from 'fs';
-import { parse } from 'csv-parse';
-import { stringify } from 'csv-stringify';
+import {createWriteStream,readFileSync, promises as fs} from 'fs';
+import {parse} from 'csv-parse/sync';
+import {stringify} from 'csv-stringify';
 
 const beforeChangesFile = "src/data/reports.csv";
 const afterChangesFile = "src/data/reports_all.csv";
 const outputDiffFile = "src/data/reports_diff.csv";
 
-const readCSV = async (filePath) => {
-    const records = [];
-    return new Promise((resolve, reject) => {
-        createReadStream(filePath)
-            .pipe(parse({
-                columns: true,
-                skip_empty_lines: true
-            }))
-            .on('data', (record) => records.push(record))
-            .on('end', () => resolve(records))
-            .on('error', reject);
+const readCSV = (filePath) => {
+    const fileContent = readFileSync(filePath);
+    return parse(fileContent, {
+        columns: true,
+        skip_empty_lines: true
     });
 };
 
@@ -61,8 +55,8 @@ const writeCSV = (changes, outputFilePath) => {
 };
 
 export async function compareCSVFiles() {
-    const oldRecords = await readCSV(beforeChangesFile);
-    const newRecords = await readCSV(afterChangesFile);
+    const oldRecords = readCSV(beforeChangesFile);
+    const newRecords = readCSV(afterChangesFile);
 
     const changes = compareRecords(oldRecords, newRecords);
     writeCSV(changes, outputDiffFile);
