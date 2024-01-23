@@ -16,3 +16,15 @@ export async function write_log(log_path, num_pages, num_reports, num_new) {
       ` - ${num_new} new reports were found`
   )
 }
+
+export async function write_full_log(log_path, num_pages, num_reports, num_new) {
+  const date = new Date()
+  await fs.writeFile(
+    log_path,
+    `Latest full fetch on ${date.toLocaleDateString()} at ${date.toLocaleTimeString()}, for which:\n` +
+      ` - ${num_pages} pages of reports were found\n` +
+      ` - ${num_reports} total reports were found\n` +
+      ` - ${num_new} reports updated`
+  )
+}
+

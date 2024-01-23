@@ -8,8 +8,7 @@ import {
     map_async
 } from './fetch/index.js'
 import {parse_report_basic, parse_summary_basic} from './parse/index.js'
-import {write_log} from './write/index.js'
-import {compareCSVFiles, write_diff_log} from './fetch/diff.js'
+import {write_log, write_full_log} from './write/index.js'
 
 const fetchAll = process.argv.slice(2).includes("fetch-all");
 
@@ -74,6 +73,7 @@ export async function write_reports(
 
     if (fetchAll) {
         urls = all_urls
+        await write_full_log(log_path, page_urls.length, all_urls.length, urls.length)
     } else {
         const seen_urls = new Set(reports.map(report => report.report_url))
         urls = all_urls.filter(url => !seen_urls.has(url))
@@ -88,8 +88,6 @@ export async function write_reports(
             fetch_report(url, parse_report, parse_summary)
                 .then(report => [report, correct_report(report)])
                 .catch(_ => {
-                    // ignore any errors from this, we'll either get it next time
-                    // or this report can't be effectively read at all
                 }),
         'Reading reports |:bar| :current/:total urls'
     )
@@ -140,15 +138,5 @@ write_reports(
     headers,
     parse_report_basic,
     parse_summary_basic
-).then(() => {
-    if (fetchAll) {
-        return compareCSVFiles();
-    }
-})
-.then(() => {
-    if (fetchAll) {
-        return write_diff_log('src/data/full_fetch.log');
-    }
-})
-.catch(error => console.error('Error:', error));
+)
 

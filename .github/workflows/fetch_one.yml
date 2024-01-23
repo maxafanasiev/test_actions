@@ -88,4 +88,4 @@ jobs:
         to: 'maksym.afanasiev@meduzzen.com'
         from: ${{ secrets.EMAIL_USERNAME }}
         body: 'Good morning! We wanted to inform you about a recent data update in our system.'
-        attachments: src/data/reports.csv, src/data/full_fetch.log, src/data/reports_diff.csv
+        attachments: src/data/reports.csv, src/data/full_fetch.log
