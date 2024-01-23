@@ -54,7 +54,7 @@ const writeCSV = (changes, outputFilePath) => {
     stringifier.end();
 };
 
-export async function compareCSVFiles() {
+export function compareCSVFiles() {
     const oldRecords = readCSV(beforeChangesFile);
     const newRecords = readCSV(afterChangesFile);
 
@@ -64,29 +64,21 @@ export async function compareCSVFiles() {
     fs.rename(afterChangesFile, beforeChangesFile);
 }
 
-async function extractFirstColumn(filePath) {
-    const fileContent = await fs.readFile(filePath);
-    const records = [];
 
-    await new Promise((resolve, reject) => {
-        parse(fileContent, {
-            columns: true,
-            skip_empty_lines: true,
-        })
-            .on('data', (row) => {
-                records.push(row.report_url);
-            })
-            .on('end', resolve)
-            .on('error', reject);
+function extractFirstColumn(filePath) {
+    const fileContent = fs.readFileSync(filePath);
+    const records = parse(fileContent, {
+        columns: true,
+        skip_empty_lines: true,
     });
 
-    return records;
+    return records.map(row => row.report_url);
 }
 
-export async function write_diff_log(log_path) {
+export function write_diff_log(log_path) {
     const date = new Date();
-    const reportUrls = await extractFirstColumn(outputDiffFile);
-    await fs.writeFile(
+    const reportUrls = extractFirstColumn(outputDiffFile);
+    fs.writeFile(
         log_path,
         `Latest full fetch on ${date.toLocaleDateString()} at ${date.toLocaleTimeString()}, for which:\n` +
         ` - ${reportUrls.length} reports changed in the last month.\n`
