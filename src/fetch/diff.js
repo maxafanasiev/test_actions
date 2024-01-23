@@ -30,7 +30,7 @@ const compareRecords = (oldRecords, newRecords) => {
             const changedFields = {};
 
             Object.keys(newRecord).forEach(key => {
-                if (newRecord[key] !== oldRecord[key]) {
+                if (newRecord[key] != oldRecord[key]) {
                     changedFields[key] = {old: oldRecord[key], new: newRecord[key]};
                 }
             });
