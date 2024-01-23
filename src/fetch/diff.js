@@ -25,7 +25,7 @@ const compareRecords = (oldRecords, newRecords) => {
     const updateDate = new Date().toISOString();
 
     newRecords.forEach(newRecord => {
-        const oldRecord = oldRecords.find(r => r.report_url === newRecord.report_url);
+        const oldRecord = oldRecords.find(r => r.report_url.includes(newRecord.report_url));
         if (oldRecord) {
             const changedFields = {};
 
@@ -65,6 +65,7 @@ export async function compareCSVFiles() {
     const newRecords = await readCSV(afterChangesFile);
 
     const changes = compareRecords(oldRecords, newRecords);
+    console.log(changes)
     await writeCSV(changes, outputDiffFile);
     await fs.unlink(beforeChangesFile);
     await fs.rename(afterChangesFile, beforeChangesFile);
