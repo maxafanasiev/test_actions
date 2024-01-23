@@ -48,7 +48,7 @@ const compareRecords = (oldRecords, newRecords) => {
     return changes;
 };
 
-const writeCSV = async (changes, outputFilePath) => {
+const writeCSV = (changes, outputFilePath) => {
     const stringifier = stringify({ header: true });
     const writableStream = createWriteStream(outputFilePath);
     stringifier.pipe(writableStream);
@@ -65,10 +65,9 @@ export async function compareCSVFiles() {
     const newRecords = await readCSV(afterChangesFile);
 
     const changes = compareRecords(oldRecords, newRecords);
-    console.log(changes)
-    await writeCSV(changes, outputDiffFile);
-    await fs.unlink(beforeChangesFile);
-    await fs.rename(afterChangesFile, beforeChangesFile);
+    writeCSV(changes, outputDiffFile);
+    fs.unlink(beforeChangesFile);
+    fs.rename(afterChangesFile, beforeChangesFile);
 }
 
 async function extractFirstColumn(filePath) {
