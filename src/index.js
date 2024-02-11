@@ -1,19 +1,20 @@
-import fs from 'fs/promises'
-import Papa from 'papaparse'
-import ReportCorrector from './correct/index.js'
+import fs from 'fs/promises';
+import Papa from 'papaparse';
+
+import ReportCorrector from './correct/index.js';
 import {
     fetch_all_urls,
     fetch_page_urls,
     fetch_report,
-    map_async
-} from './fetch/index.js'
-import {parse_report_basic, parse_summary_basic} from './parse/index.js'
-import {write_log, write_full_log} from './write/index.js'
+    map_async,
+} from './fetch/index.js';
+import { parse_report_basic, parse_summary_basic } from './parse/index.js';
+import { write_log, write_full_log } from './write/index.js';
 
-const fetchAll = process.argv.slice(2).includes("fetch-all");
+const fetchAll = process.argv.slice(2).includes('fetch-all');
 
 if (fetchAll) {
-    console.log('Fetching all records.')
+    console.log('Fetching all records.');
 }
 
 /** Finds all reports already present in our csv
@@ -24,13 +25,13 @@ async function fetch_seen_reports(file_path) {
     if (fetchAll) {
         return await fs
             .writeFile(file_path)
-            .then(text => Papa.parse(text, {header: true}).data)
-            .catch(_ => [])
+            .then((text) => Papa.parse(text, { header: true }).data)
+            .catch((_) => []);
     } else {
         return await fs
             .readFile(file_path, 'utf8')
-            .then(text => Papa.parse(text, {header: true}).data)
-            .catch(_ => [])
+            .then((text) => Papa.parse(text, { header: true }).data)
+            .catch((_) => []);
     }
 }
 
@@ -63,50 +64,64 @@ export async function write_reports(
     parse_report,
     parse_summary
 ) {
-    let reports = await fetch_seen_reports(csv_path)
-    let correct = await fetch_seen_reports(correct_path)
-    const correct_report = await ReportCorrector()
+    let reports = await fetch_seen_reports(csv_path);
+    let correct = await fetch_seen_reports(correct_path);
+    const correct_report = await ReportCorrector();
 
-    const page_urls = await fetch_page_urls(reports_url)
-    const all_urls = await fetch_all_urls(page_urls)
+    const page_urls = await fetch_page_urls(reports_url);
+    const all_urls = await fetch_all_urls(page_urls);
     let urls;
 
     if (fetchAll) {
-        urls = all_urls
-        await write_full_log(log_path, page_urls.length, all_urls.length, urls.length)
+        urls = all_urls;
+        await write_full_log(
+            log_path,
+            page_urls.length,
+            all_urls.length,
+            urls.length
+        );
     } else {
-        const seen_urls = new Set(reports.map(report => report.report_url))
-        urls = all_urls.filter(url => !seen_urls.has(url))
-        await write_log(log_path, page_urls.length, all_urls.length, urls.length)
+        const seen_urls = new Set(reports.map((report) => report.report_url));
+        urls = all_urls.filter((url) => !seen_urls.has(url));
+        await write_log(
+            log_path,
+            page_urls.length,
+            all_urls.length,
+            urls.length
+        );
     }
 
+    if (urls.length === 0) return console.log('Reports up to date!');
 
-    if (urls.length === 0) return console.log('Reports up to date!')
     let new_reports = await map_async(
-        urls,
-        url =>
-            fetch_report(url, parse_report, parse_summary)
-                .then(report => [report, correct_report(report)])
-                .catch(_ => {
-                }),
-        'Reading reports |:bar| :current/:total urls'
-    )
-    new_reports = new_reports.filter(report => report !== undefined)
+    urls,
+    (url) =>
+        fetch_report(url, parse_report, parse_summary)
+            .then((report) => [report, correct_report(report)])
+            .catch((_) => {}),
+    5,
+    'Reading reports |:bar| :current/:total urls'
+);
+
+    new_reports = new_reports.filter((report) => report !== undefined);
 
     for (const [report, corrected] of new_reports.reverse()) {
-        reports.unshift(report)
-        correct.unshift(corrected)
+        reports.unshift(report);
+        correct.unshift(corrected);
     }
 
     // descending sort ref
-    reports.sort(({ref: a = ''}, {ref: b = ''}) => b.localeCompare(a))
-    correct.sort(({ref: a = ''}, {ref: b = ''}) => b.localeCompare(a))
+    reports.sort(({ ref: a = '' }, { ref: b = '' }) => b.localeCompare(a));
+    correct.sort(({ ref: a = '' }, { ref: b = '' }) => b.localeCompare(a));
 
-    await fs.writeFile(csv_path, Papa.unparse(reports, {header: true, columns}))
+    await fs.writeFile(
+        csv_path,
+        Papa.unparse(reports, { header: true, columns })
+    );
     await fs.writeFile(
         correct_path,
-        Papa.unparse(correct, {header: true, columns})
-    )
+        Papa.unparse(correct, { header: true, columns })
+    );
 }
 
 /** @typedef {Summary & Report & URLs} Full_Report */
@@ -127,8 +142,8 @@ const headers = [
     'inquest',
     'action',
     'response',
-    'legal'
-]
+    'legal',
+];
 
 write_reports(
     'https://www.judiciary.uk/prevention-of-future-death-reports/',
@@ -138,5 +153,4 @@ write_reports(
     headers,
     parse_report_basic,
     parse_summary_basic
-)
-
+);

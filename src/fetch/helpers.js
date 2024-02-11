@@ -105,15 +105,24 @@ export async function fetch_pdf(url) {
  * @param {string} msg the message format for the progress bar to use
  * @return {Promise<R[]>} the result of applying func to all of the data
  */
-export function map_async(xs, func, msg = undefined) {
+export async function map_async(xs, func, limit = 5 , msg = undefined) {
   const progress = msg ? new ProgressBar(msg, xs.length) : { tick() {} }
-  return Promise.all(
-    xs.map(async d => {
-      const res = await func(d)
-      progress.tick()
-      return res
-    })
-  )
+    let results = [];
+    let executing = [];
+    for (const url of xs) {
+        const p = Promise.resolve().then(() => func(url));
+        results.push(p);
+        progress.tick()
+
+        if (limit <= xs.length) {
+            const e = p.then(() => executing.splice(executing.indexOf(e), 1));
+            executing.push(e);
+            if (executing.length >= limit) {
+                await Promise.race(executing);
+            }
+        }
+    }
+    return Promise.all(results);
 }
 
 /**

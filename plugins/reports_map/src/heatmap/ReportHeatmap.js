@@ -1,7 +1,7 @@
-import { SVG } from "@wordpress/primitives";
-import ReportMap from "./ReportMap.js";
-import ReportScale from "./ReportScale.js";
-import { forwardRef } from "react";
+import { SVG } from '@wordpress/primitives';
+import ReportMap from './ReportMap.js';
+import ReportScale from './ReportScale.js';
+import { forwardRef } from 'react';
 
 /**
  * @typedef {Object} ReportHeatmapProps
@@ -18,19 +18,19 @@ import { forwardRef } from "react";
  * @returns {WPElement}
  */
 const ReportHeatmap = forwardRef(
-	({ area_counts, max, scale, ...svg_props }, ref) => {
+	( { area_counts, max, scale, ...svg_props }, ref ) => {
 		return (
 			<svg
 				id="Report_Heatmap"
-				ref={ref}
+				ref={ ref }
 				data-name="Report Heatmap"
 				xmlns="http://www.w3.org/2000/svg"
 				viewBox="0 0 647.73 680.32"
-				width={630}
-				height={680}
+				width={ 630 }
+				height={ 680 }
 				role="group"
 				aria-labelledby="Report_Heatmap_Title Report_Heatmap_Desc"
-				{...svg_props}
+				{ ...svg_props }
 			>
 				<title id="Report_Heatmap_Title">Reports Heatmap</title>
 				<desc id="Report_Heatmap_Desc">
@@ -38,11 +38,11 @@ const ReportHeatmap = forwardRef(
 				</desc>
 
 				<g id="Report_Heatmap_Map">
-					<ReportMap {...{ area_counts, max, scale }} />
+					<ReportMap { ...{ area_counts, max, scale } } />
 				</g>
 
 				<g id="Report_Heatmap_Scale" transform="translate(600 30)">
-					<ReportScale {...{ max, scale }} />
+					<ReportScale { ...{ max, scale } } />
 				</g>
 			</svg>
 		);

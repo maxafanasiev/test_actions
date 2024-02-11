@@ -1,13 +1,13 @@
-# Preventable Deaths Scraper and Analysis
+# Preventable Deaths Tracker Web Scraper and Analysis
 
 [![CodeQL](https://github.com/Mr-Helpful/preventable-deaths-scraper/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/Mr-Helpful/preventable-deaths-scraper/actions/workflows/github-code-scanning/codeql)
 [![Fetch Reports](https://github.com/Mr-Helpful/preventable-deaths-scraper/actions/workflows/fetch.yml/badge.svg)](https://github.com/Mr-Helpful/preventable-deaths-scraper/actions/workflows/fetch.yml)
 
 ## Introduction
 
-This repository represents a rewrite of the [Preventable Deaths Scraper](https://github.com/georgiarichards/georgiarichards.github.io) in javascript. This rewrite focuses on the explainability of the scraper (all code is documented), the speed of the scraper (we use async code to scrape whilst fetching) and the ability to run the scraper on a server (using node.js).
+This repository represents a rewrite of the [Preventable Deaths Scraper](https://github.com/georgiarichards/georgiarichards.github.io) in JavaScript, initially conducted by Summer Intern and Oxford Computer Scientist, [Alex Colby](https://github.com/Mr-Helpful/preventable-deaths-scraper). This rewrite focuses on the explainability of the scraper (all code is documented), the speed of the scraper (we use async code to scrape whilst fetching), the ability to run the scraper on a server (using node.js) and automate its processing. 
 
-We also provide a custom [wordpress gutenberg plugin](https://developer.wordpress.org/block-editor/how-to-guides/platform/) to be used alongside the scraped data. This takes the form of a custom block that renders a Heatmap over coroner areas, as defined on the [coroner’s society](https://www.coronersociety.org.uk/coroners//?search_keyword=&search_area=&send=1&admin=search).
+We also provide a custom [wordpress gutenberg plugin](https://developer.wordpress.org/block-editor/how-to-guides/platform/) to be used alongside the scraped data. This takes the form of a custom block that renders a Heatmap over coroner areas, as defined by the [coroner’s society](https://www.coronersociety.org.uk/coroners//?search_keyword=&search_area=&send=1&admin=search).
 
 ## Installation and Usage
 
@@ -46,14 +46,14 @@ npm install
 Then manual corrections for all fields can be added by running the following command in the root directory of this repository:
 
 ```bash
-npm run correct:update all
+npm run correct: update all
 ```
 
-This will open up an interactive prompt for each failed parse, allowing you to correct, skip or mark the field entry as uncorrectable. Other options for updating individual columns' corrections are available by running `npm run correct:update -- --help`.
+This will open up an interactive prompt for each failed parse, allowing you to correct, skip or mark the field entry as uncorrectable. Other options for updating individual columns' corrections are available by running `npm run correct: update -- --help`.
 
 ### Analyses
 
-All analyses are written in python and require [python 3.8](https://www.python.org/downloads/) or above. You'll also need to have [pip](https://pip.pypa.io/en/stable/installation/) installed.
+All analyses are written in Python and require [python 3.8](https://www.python.org/downloads/) or above. You'll also need to have [pip](https://pip.pypa.io/en/stable/installation/) installed.
 
 #### Year Count Analysis
 
@@ -116,9 +116,9 @@ A shortcut to run the analysis is defined in the [`package.json`](./package.json
 npm run analyse:label-medical
 ```
 
-### Wordpress Plugins
+### WordPress Plugins
 
-The wordpress plugins are written using the Project Gutenberg [block editor](https://developer.wordpress.org/block-editor/getting-started/devenv/). To install the plugins, you'll need to have [node.js](https://nodejs.org/en/) installed. Once you have node.js installed, you can install the plugins by running the following command in either of the plugins' project directories:
+The WordPress plugins are written using Project Gutenberg [block editor](https://developer.wordpress.org/block-editor/getting-started/devenv/). To install the plugins, you'll need to have [node.js](https://nodejs.org/en/) installed. Once you have node.js installed, you can install the plugins by running the following command in either of the plugins' project directories:
 
 ```bash
 npm install -g @wordpress/env
@@ -136,13 +136,13 @@ npm run start
 
 There are 6 main directories in the [`src`](./src) directory:
 
-- [`analyse`](./src/analyse): Analysis of the scraped data (mostly in python).
+- [`analyse`](./src/analyse): Analysis of the scraped data (mostly in Python).
 - [`correct`](./src/correct): Correcting/cleaning the scraped data.
 - [`data`](./src/data): The raw report data.
 - [`fetch`](./src/fetch): Fetching/scraping the report data.
 - [`parse`](./src/parse): Parsing the scraped data (i.e. html -> csv).
 - [`write`](./src/write): Writing to both the `reports.csv` file and the log file.
 
-The [`plugins`](./plugins) directory contains wordpress plugins to be used with the report CSVs produced by the scraper (these are probably only interesting if you're interested in data vis/wordpress plugins).
+The [`plugins`](./plugins) directory contains WordPress plugins to be used with the report CSVs produced by the scraper (these are probably only interesting if you're interested in data vis/WordPress plugins).
 
-All javascript code for is documented with JSDoc and all python code is written in an interactive python file (you should hopefully be able to run this like a jupyter notebook).
+All javascript code is documented with JSDoc and all Python code is written in an interactive Python file (you should hopefully be able to run this like a Jupyter notebook).

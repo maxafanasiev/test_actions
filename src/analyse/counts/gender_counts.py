@@ -6,11 +6,11 @@
 # %% [markdown]
 # ### Importing libraries
 
-import os
 import json
-import pandas as pd
+import os
 
-from helpers import toml_stats, percent
+import pandas as pd
+from helpers import percent, toml_stats
 
 PATH = os.path.dirname(__file__)
 DATA_PATH = os.path.abspath(f"{PATH}/data")
@@ -26,7 +26,7 @@ UNKNOWN_NAME = rf"^(?:(?!{MALE_NAME}|{FEMALE_NAME}).)*$"
 
 MALE_NAME = rf"^.*{MALE_NAME}.*$"
 FEMALE_NAME = rf"^.*{FEMALE_NAME}.*$"
-REPLACEMENTS = {MALE_NAME: 'male', FEMALE_NAME: 'female', UNKNOWN_NAME: 'unknown'}
+REPLACEMENTS = {MALE_NAME: "male", FEMALE_NAME: "female", UNKNOWN_NAME: "unknown"}
 print(REPLACEMENTS)
 
 # %% [markdown]
@@ -37,8 +37,8 @@ reports = pd.read_csv(f"{REPORTS_PATH}/reports-analysed.csv")
 # %% [markdown]
 # ### Reading coroner names
 
-with open(f"{CORRECTION_PATH}/fetched_names.json", 'r', encoding="utf8") as rf:
-  coroner_names = json.load(rf)
+with open(f"{CORRECTION_PATH}/fetched_names.json", "r", encoding="utf8") as rf:
+    coroner_names = json.load(rf)
 
 website_genders = pd.Series(coroner_names).str.lower().replace(regex=REPLACEMENTS)
 website_counts = website_genders.value_counts()
@@ -47,32 +47,48 @@ website_counts = website_genders.value_counts()
 # ### Calculating the year of each report
 
 # use a regex to extract the year from the date of report
-reports['year'] = reports['date_of_report'].str.extract(r'\d{2}\/\d{2}\/(\d{4})')
+reports["year"] = reports["date_of_report"].str.extract(r"\d{2}\/\d{2}\/(\d{4})")
 
 # %% [markdown]
 # ### Counting the number of reports in each coroner area
 
 # count the number of reports in each year
-reports['gender'] = reports['coroner_name'].str.lower().replace(regex=REPLACEMENTS)
-gender_counts = reports.value_counts(['year', 'gender']).unstack(fill_value=0)
-sum_counts = reports.value_counts('gender')
+reports["gender"] = reports["coroner_name"].str.lower().replace(regex=REPLACEMENTS)
+gender_counts = reports.value_counts(["year", "gender"]).unstack(fill_value=0)
+sum_counts = reports.value_counts("gender")
 
 # %% [markdown]
 # ### Various statistics about the counts
 
-toml_stats['coroners in reports'] = statistics = dict(
-  toml_stats['coroners in reports'], **{
-  "reports from male coroners": [float(sum_counts['male']), percent(sum_counts['male'], sum_counts.sum())],
-  "reports from female coroners": [float(sum_counts['female']), percent(sum_counts['female'], sum_counts.sum())],
-  "reports from unknown coroners": [float(sum_counts['unknown']), percent(sum_counts['unknown'], sum_counts.sum())],
-})
+toml_stats["coroners in reports"] = statistics = dict(
+    toml_stats["coroners in reports"],
+    **{
+        "reports from male coroners": [float(sum_counts["male"]), percent(sum_counts["male"], sum_counts.sum())],
+        "reports from female coroners": [float(sum_counts["female"]), percent(sum_counts["female"], sum_counts.sum())],
+        "reports from unknown coroners": [
+            float(sum_counts["unknown"]),
+            percent(sum_counts["unknown"], sum_counts.sum()),
+        ],
+    },
+)
 
 toml_stats["coroners' society"] = dict(
-  toml_stats["coroners' society"], **{
-  "coroners in society male": [float(website_counts['male']), percent(website_counts['male'], website_counts.sum())],
-  "coroners in society female": [float(website_counts['female']), percent(website_counts['female'], website_counts.sum())],
-  "coroners in society unknown": [float(website_counts['unknown']), percent(website_counts['unknown'], website_counts.sum())],
-})
+    toml_stats["coroners' society"],
+    **{
+        "coroners in society male": [
+            float(website_counts["male"]),
+            percent(website_counts["male"], website_counts.sum()),
+        ],
+        "coroners in society female": [
+            float(website_counts["female"]),
+            percent(website_counts["female"], website_counts.sum()),
+        ],
+        "coroners in society unknown": [
+            float(website_counts["unknown"]),
+            percent(website_counts["unknown"], website_counts.sum()),
+        ],
+    },
+)
 
 print(f"Gender count statistics: {statistics}")
 print(f"Sorted counts: {sum_counts}")

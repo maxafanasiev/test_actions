@@ -1,4 +1,4 @@
-import { table_parser } from './helpers.js';
+import {table_parser} from './helpers.js'
 /** @typedef {import('./helpers.js').Parser} Parser */
 /** @typedef {import('./helpers.js').HeadersFor} HeadersFor */
 
@@ -31,22 +31,35 @@ export const default_report = {
     concerns: '',
     action: '',
     response: '',
-    date_of_report: '',
-};
+    date_of_report: ''
+}
 
 /** @type {HeadersFor<Basic_Report>} */
 const report_headings = {
-    'THIS REPORT IS BEING SENT TO:?': 'this_report_is_being_sent_to',
-    "1\\s*CORONER[’']?": 'coroner_name',
-    "2\\s*CORONER[’']?S LEGAL POWERS": 'legal',
+    'THIS REPORT IS BEING SENT TO:?|IS BEING SENT TO:?': 'this_report_is_being_sent_to',
+    '1\\s*CORONER': 'coroner_name',
+    "2\\s*CORONER[’']S LEGAL POWERS": 'legal',
     '3\\s*INVESTIGATION and INQUEST': 'inquest',
     '4\\s*CIRCUMSTANCES OF THE DEATH': 'circumstances',
-    "5\\s*CORONER[’']?S CONCERNS": 'concerns',
+    "5\\s*CORONER[’']S CONCERNS": 'concerns',
     '6\\s*ACTION SHOULD BE TAKEN': 'action',
     '7\\s*YOUR RESPONSE': 'response',
     '8\\s*COPIES and PUBLICATION': 'copies',
-    9: 'date_of_report',
-};
+    // '9': 'date_of_report' // TODO: find out a good way to match this heading
+}
+
+const report_headings_pdf = {
+    '(THIS REPORT IS BEING SENT TO:?|IS BEING SENT TO:?\n[\\s\\S]*?)1\\s*CORONER': 'this_report_is_being_sent_to',
+    "(1\\s*CORONER\n[\\s\\S]*?)2\\s*CORONER[’']S LEGAL POWERS": 'coroner_name',
+    "(2\\s*CORONER[’']S LEGAL POWERS\n[\\s\\S]*?)3\\s*INVESTIGATION and INQUEST": 'legal',
+    '(3\\s*INVESTIGATION and INQUEST\n[\\s\\S]*?)4\\s*CIRCUMSTANCES OF THE DEATH': 'inquest',
+    "(4\\s*CIRCUMSTANCES OF THE DEATH\n[\\s\\S]*?)5\\s*CORONER[’']S CONCERNS": 'circumstances',
+    "(5\\s*CORONER[’']S CONCERNS\n[\\s\\S]*?)6\\s*ACTION SHOULD BE TAKEN": 'concerns',
+    '(6\\s*ACTION SHOULD BE TAKEN\n[\\s\\S]*?)7\\s*YOUR RESPONSE': 'action',
+    '(7\\s*YOUR RESPONSE\n[\\s\\S]*?)8\\s*COPIES and PUBLICATION': 'response',
+    '(8\\s*COPIES and PUBLICATION\n[\\s\\S]*?)9': 'copies'
+    // 9: 'date_of_report' // TODO: find out a good way to match this heading
+}
 
 /** Parses the rows of a table, using the headers
  * @template R
@@ -55,24 +68,19 @@ const report_headings = {
  * @return {string[] | undefined} the table rows resulting
  */
 export function parse_rows(text, parse_report) {
-    const table = [];
-
-    for (const headingPattern in report_headings) {
-        const regex = new RegExp(
-            headingPattern + '\\s*(.*?)(?=(?:\\d+\\s*[A-Z]|$))',
-            'is'
-        );
-        let previousText;
-        const match = text.match(regex);
-
+    let table = []
+    for (const heading in report_headings_pdf) {
+        let match = text.match(RegExp(heading, 'i'))
         if (match) {
-            table.push(match[1].trim());
+
+            table.push(match[1])
         }
     }
-    return parse_report(table);
+
+    return parse_report(table)
 }
 
 /** Parses field into the basic format for a report
  * @type {Parser<Basic_Report>}
  */
-export const parse_report_basic = table_parser(report_headings);
+export const parse_report_basic = table_parser(report_headings)

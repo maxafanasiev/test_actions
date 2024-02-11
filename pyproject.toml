@@ -1,0 +1,30 @@
+[project]
+name = "PreventableDeathsScraper"
+version = "1.0.0"
+description = ""
+authors = ["Georgia Richards"]
+readme = "README.md"
+
+[tool.black]
+line-length = 119
+
+[tool.isort]
+profile = "black"
+line_length = 119
+src_paths = ["isort", "test"]
+
+[tool.flake8]
+ignore = ['E266','W503','E203','E722']
+exclude ="""
+    __pycache__,
+    venv,
+    .venv,
+    docs,
+    tests,
+    dist_docs
+    """
+per-file-ignores = [
+    '__init__.py:F401',
+]
+max-line-length = 119
+count = true

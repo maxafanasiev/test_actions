@@ -81,8 +81,12 @@ export default async function Corrector(keep_failed = true) {
     },
     'Merging destinations |:bar| :current/:total corrections'
   )
-  corrections[0] = known_replacements[0]
-  corrections[1] = known_replacements[1]
+  // // corrections[0] = known_replacements[0]
+  // corrections[1] = known_replacements[1]
+
+  corrections[0] = { ...corrections[0], ...known_replacements[0] }
+  corrections[1] = { ...corrections[1], ...known_replacements[1] }
+
 
   function try_known_match(text) {
     // If there's an exact match, return it
@@ -102,13 +106,14 @@ export default async function Corrector(keep_failed = true) {
     if (known_matches === undefined) return undefined
 
     const known_match = max_by(known_matches, match => -match.error).phrase
+
     return replacements[known_match]
   }
 
   function add_to_known(text) {
     text = text.replace(non_words, ' ').trim()
-    delete known_replacements[0][to_acronym(text)]
-    known_replacements[0][text] = text
+    // delete known_replacements[0][to_acronym(text)]
+    // known_replacements[0][text] = text
     if (to_acronym(text) !== text)
       known_replacements[1][to_acronym(text)] = text
   }
@@ -119,15 +124,16 @@ export default async function Corrector(keep_failed = true) {
     if (incorrect.has(text)) return undefined
 
     // if we have `;` or `|` in the text we can assume it's a well formed list
-    if (text.match(/[;|]/)) {
+    if (text.match(/[;|,]/) || text.match(connective_words)) {
       const destinations = text
-        .split(/[;|]/g)
+        .split(/[;|,]/g)
         .map(dest => dest.trim())
         .filter(dest => dest.length > 0)
       return destinations
         .map(dest => {
           const known_match = try_known_match(dest)
-          if (known_match) return known_match
+          if (known_match) {
+            return known_match}
           add_to_known(dest)
           return dest
         })
@@ -152,6 +158,7 @@ export default async function Corrector(keep_failed = true) {
       return matches.map(match => replacements[match.phrase]).join(' | ')
 
     failed.push(text)
+    return text
   }
 
   correct_name.close = async () => {

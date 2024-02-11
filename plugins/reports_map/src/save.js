@@ -4,11 +4,11 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from "@wordpress/block-editor";
+import { useBlockProps } from '@wordpress/block-editor';
 
-import ReportHeatMap from "./heatmap/ReportHeatmap.js";
-import color_scales from "./heatmap/report-scales.json";
-import { parse_csv, sum_columns } from "./helpers.js";
+import ReportHeatMap from './heatmap/ReportHeatmap.js';
+import color_scales from './heatmap/report-scales.json';
+import { parse_csv, sum_columns } from './helpers.js';
 
 /** @typedef {{csv_text: string, source_url: string}} SaveBlockProps */
 
@@ -21,22 +21,22 @@ import { parse_csv, sum_columns } from "./helpers.js";
  *
  * @return {WPElement} Element to render.
  */
-export default function Save({ attributes }) {
-	const { csv } = parse_csv(attributes.csv_text);
-	if (csv.length === 0) return <div>No Data</div>;
+export default function Save( { attributes } ) {
+	const { csv } = parse_csv( attributes.csv_text );
+	if ( csv.length === 0 ) return <div>No Data</div>;
 
-	const area_counts = sum_columns(csv);
-	const max = Math.max(...Object.values(area_counts), 0);
+	const area_counts = sum_columns( csv );
+	const max = Math.max( ...Object.values( area_counts ), 0 );
 	return (
-		<div {...useBlockProps.save()}>
+		<div { ...useBlockProps.save() }>
 			<div
 				className="report-heatmap-block"
-				data-props={JSON.stringify(attributes)}
+				data-props={ JSON.stringify( attributes ) }
 			>
 				<ReportHeatMap
-					area_counts={area_counts}
-					max={max}
-					scale={color_scales.custom}
+					area_counts={ area_counts }
+					max={ max }
+					scale={ color_scales.custom }
 				/>
 			</div>
 		</div>
