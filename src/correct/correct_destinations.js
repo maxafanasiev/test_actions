@@ -74,7 +74,7 @@ export default async function Corrector(keep_failed = true) {
   if (corrections.length < 2) corrections.unshift({}, {})
   let known_replacements = [{}, {}]
   await map_series(
-    Object.keys(corrections[0]),
+    Object.keys({ ...corrections[0], ...corrections[1] }),
     key => {
       const match = try_known_match(key)
       if (match) add_to_known(match)
@@ -113,7 +113,9 @@ export default async function Corrector(keep_failed = true) {
   function add_to_known(text) {
     text = text.replace(non_words, ' ').trim()
     // delete known_replacements[0][to_acronym(text)]
-    // known_replacements[0][text] = text
+    if (!(text in corrections[0])) {
+    known_replacements[0][text] = text
+    }
     if (to_acronym(text) !== text)
       known_replacements[1][to_acronym(text)] = text
   }

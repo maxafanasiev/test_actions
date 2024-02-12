@@ -6,6 +6,7 @@
     "fetch:all": "node --no-warnings src/index.js fetch-all",
     "correct": "node --no-warnings src/correct/run_corrections.js",
     "correct:update": "node --no-warnings src/correct/add_corrections.js",
+    "correct:destination": "python src/analyse/counts/split_dest.py",
     "analyse:counts": "python src/analyse/counts/counts.py",
     "analyse:areas": "python src/analyse/counts/area_counts.py",
     "analyse:names": "python src/analyse/counts/name_counts.py",

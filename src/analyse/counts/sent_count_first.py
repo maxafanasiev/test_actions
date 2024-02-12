@@ -105,7 +105,7 @@ non_na.loc[~report_due & (non_na["response status"] == "partial"), "response sta
 
 reports.loc[:, "response status"] = "failed"
 reports.loc[non_na.index, "response status"] = non_na["response status"]
-empty_requests = fetched["this_report_is_being_sent_to"].isna()
+empty_requests = reports["this_report_is_being_sent_to"].isna()
 reports.loc[empty_requests, "response status"] = "no requests"
 
 reports.loc[:, "no. recipients"] = 0
