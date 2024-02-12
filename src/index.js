@@ -118,10 +118,10 @@ export async function write_reports(
         csv_path,
         Papa.unparse(reports, { header: true, columns })
     );
-    await fs.writeFile(
-        correct_path,
-        Papa.unparse(correct, { header: true, columns })
-    );
+    // await fs.writeFile(
+    //     correct_path,
+    //     Papa.unparse(correct, { header: true, columns })
+    // );
 }
 
 /** @typedef {Summary & Report & URLs} Full_Report */

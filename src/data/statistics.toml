@@ -21,37 +21,37 @@
 "IQR of areas" = [ 22.0, 77.0,]
 
 ["coroners' society"]
-"no. names in society" = 586
-"names in society with reports" = [ 347.0, 59.2,]
-"names in society without reports" = [ 239.0, 40.8,]
-"coroners in society male" = [ 232.0, 39.6,]
-"coroners in society female" = [ 223.0, 38.1,]
-"coroners in society unknown" = [ 131.0, 22.4,]
+"no. names in society" = 594
+"names in society with reports" = [ 350.0, 58.9,]
+"names in society without reports" = [ 244.0, 41.1,]
+"coroners in society male" = [ 237.0, 39.9,]
+"coroners in society female" = [ 221.0, 37.2,]
+"coroners in society unknown" = [ 136.0, 22.9,]
 
 ["coroners in reports"]
-"reports from male coroners" = [ 1821.0, 37.9,]
-"reports from female coroners" = [ 1701.0, 35.4,]
-"reports from unknown coroners" = [ 1288.0, 26.8,]
+"reports from male coroners" = [ 2018.0, 42.0,]
+"reports from female coroners" = [ 1799.0, 37.4,]
+"reports from unknown coroners" = [ 993.0, 20.6,]
 "no. reports parsed" = 4810
-"no. coroner names in reports" = 477
-"reports from top 30 names" = [ 1785.0, 37.1,]
-"mean per name" = 10.1
+"no. coroner names in reports" = 464
+"reports from top 30 names" = [ 1825.0, 37.9,]
+"mean per name" = 10.4
 "median per name" = 4.0
-"IQR of names" = [ 1.0, 11.0,]
+"IQR of names" = [ 1.75, 12.0,]
 
 ["this report is sent to"]
-"reports parsed" = [ 3776.0, 78.5,]
+"reports parsed" = [ 3777.0, 78.5,]
 "reports without recipients" = [ 857.0, 17.8,]
-"reports failed" = [ 179.0, 3.7,]
-"reports pending" = [ 48.0, 1.0,]
+"reports failed" = [ 178.0, 3.7,]
+"reports pending" = [ 49.0, 1.0,]
 "reports overdue" = [ 1197.0, 24.9,]
 "reports partial" = [ 417.0, 8.7,]
 "reports completed" = [ 2114.0, 43.9,]
 
 ["requests for response"]
-"no. recipients with requests" = 1375
-"no. requests for response" = 5583
-"requests pending" = [ 86.0, 1.5,]
+"no. recipients with requests" = 1376
+"no. requests for response" = 5584
+"requests pending" = [ 87.0, 1.6,]
 "requests received" = [ 2677.0, 47.9,]
 "requests overdue" = [ 2820.0, 50.5,]
 "mean no. requests per recipient" = 4.1

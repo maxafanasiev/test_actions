@@ -7,6 +7,10 @@ import time
 
 sys.path.append(".")
 
+import split_dest as _
+time.sleep(1)
+import sort_by_date as _
+
 PATH = os.path.dirname(__file__)
 C_REPORTS_PATH = os.path.abspath(f"{PATH}/../../data/reports-corrected.csv")
 A_REPORTS_PATH = os.path.abspath(f"{PATH}/../../data/reports-analysed.csv")
@@ -14,10 +18,6 @@ A_REPORTS_PATH = os.path.abspath(f"{PATH}/../../data/reports-analysed.csv")
 shutil.copyfile(C_REPORTS_PATH, A_REPORTS_PATH)
 
 # %% [markdown]
-import split_dest as _
-time.sleep(1)
-import split_dest as _
-import sort_by_date as _
 # ### Running the counts
 import area_counts as _
 import category_counts as _
