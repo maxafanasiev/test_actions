@@ -84,5 +84,5 @@ jobs:
           src/data/full_fetch.log, 
           src/data/latest_last_month.log,
           src/data/statistics.toml,
-          src/data/monthly_statistics.toml
+          src/data/monthly_statistics.toml,
           src/correct/manual_replace/new_unknown_destinations.json,
