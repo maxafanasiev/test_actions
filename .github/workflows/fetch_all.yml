@@ -82,7 +82,7 @@ jobs:
         body: 'Good morning! We wanted to inform you about a recent data update in our system.'
         attachments: src/data/reports.csv, 
           src/data/full_fetch.log, 
-          src/data/latest_last_month,
+          src/data/latest_last_month.log,
           src/data/statistics.toml,
           src/data/monthly_statistics.toml
           src/correct/manual_replace/new_unknown_destinations.json,
