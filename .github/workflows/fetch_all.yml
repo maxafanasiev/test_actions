@@ -67,7 +67,7 @@ jobs:
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: "chore: fetch latest reports"
-        file_pattern: '**/*.csv **/latest.log **/full_fetch.log **/*.toml, **/latest_last_month.log'
+        file_pattern: '**/*.csv **/latest.log **/full_fetch.log **/*.toml **/latest_last_month.log'
 
     - name: Send Mail
       uses: dawidd6/action-send-mail@v2
