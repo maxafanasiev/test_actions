@@ -1,31 +1,31 @@
 sent_to,no. PFDs,overdue,pending,received,% received
-Department of Health and Social Care,494,263,10,221,44.7
-NHS England,374,161,7,206,55.1
-Care Quality Commission,130,84,4,42,32.3
-NHS Foundation Trust,90,54,0,36,40.0
-Ministry of Justice,67,54,0,13,19.4
+Department of Health and Social Care,498,265,12,221,44.4
+NHS England,378,162,10,206,54.5
+Care Quality Commission,132,84,6,42,31.8
+NHS Foundation Trust,91,54,1,36,39.6
+Ministry of Justice,68,54,1,13,19.1
 National Highways,64,41,1,22,34.4
 HM Prison and Probation Service,63,34,3,26,41.3
 Home Office,59,29,0,30,50.8
-Betsi Cadwaladr University Health Board,56,20,2,34,60.7
+Betsi Cadwaladr University Health Board,57,20,3,34,59.6
 Barts Health NHS Trust,52,20,0,32,61.5
 Department for Transport,51,19,0,32,62.7
+National Institute for Health and Care Excellence,46,24,2,20,43.5
 Metropolitan Police,46,13,0,33,71.7
-National Institute for Health and Care Excellence,44,24,0,20,45.5
 Health and Safety Executive,44,25,0,19,43.2
-Clinical Commissioning Group,41,28,0,13,31.7
+Clinical Commissioning Group,42,29,0,13,31.0
 Pennine Care NHS Foundation Trust,41,22,0,19,46.3
-Greater Manchester Integrated Care Partnership,39,18,1,20,51.3
+Greater Manchester Integrated Care Partnership,40,18,2,20,50.0
 Welsh Ambulance Services NHS Trust,38,15,1,22,57.9
 Network Rail,33,6,0,27,81.8
 National Offender Management Service,32,24,0,8,25.0
-National Police Chiefs’ Council,31,23,0,8,25.8
 Medicines and Healthcare Products Regulatory Agency,31,18,0,13,41.9
+National Police Chiefs’ Council,31,23,0,8,25.8
 Cwm Taf Morgannwg University Health Board,31,15,0,16,51.6
-East London NHS Foundation Trust,30,15,0,15,50.0
-Greater Manchester Mental Health NHS Foundation Trust,30,18,0,12,40.0
 Tameside and Glossop Integrated Care NHS Foundation Trust,30,16,0,14,46.7
-College of Policing,28,9,0,19,67.9
+Greater Manchester Mental Health NHS Foundation Trust,30,18,0,12,40.0
+East London NHS Foundation Trust,30,15,0,15,50.0
+College of Policing,29,9,1,19,65.5
+Department for Education,28,11,1,16,57.1
 University Hospitals Sussex NHS Foundation Trust,27,10,0,17,63.0
-Department for Education,27,11,0,16,59.3
 Manchester University NHS Foundation Trust,27,17,0,10,37.0
