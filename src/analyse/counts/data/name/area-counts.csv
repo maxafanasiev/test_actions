@@ -25,7 +25,7 @@ Greater Manchester North,0,1,5,0,0,0,0,1
 Greater Manchester South,0,2,7,0,1,0,0,1
 Greater Manchester West,0,2,8,0,0,0,0,1
 Gwent,0,0,4,0,0,0,0,1
-"Hampshire, Portsmouth and Southampton",0,2,7,0,0,0,0,1
+"Hampshire, Portsmouth and Southampton",0,2,8,0,0,0,0,1
 Herefordshire,0,0,1,0,0,0,0,1
 Hertfordshire,0,1,3,0,0,0,0,1
 Isle of Wight,0,0,0,0,0,0,0,1
@@ -42,8 +42,8 @@ London East,0,1,3,0,0,0,0,1
 London Inner North,0,0,8,0,0,0,0,1
 London Inner South,0,0,14,0,0,0,0,1
 London Inner West,0,0,8,0,0,0,0,1
-London North,0,0,4,0,0,0,0,1
-London South,0,0,5,0,0,0,0,1
+London North,0,1,4,0,0,0,0,1
+London South,0,0,7,0,0,0,0,1
 London West,0,0,6,0,0,0,0,2
 Manchester City,0,1,6,0,0,0,0,1
 Milton Keynes,0,0,2,0,0,0,0,1
@@ -52,7 +52,7 @@ Norfolk,0,2,2,0,0,0,0,1
 North Lincolnshire and Grimsby,0,0,0,0,1,0,0,0
 North Wales (East & Central),0,0,2,0,0,0,0,1
 North West Wales,0,0,1,0,0,0,0,1
-North Yorkshire and York,0,1,4,0,0,0,0,1
+North Yorkshire and York,0,1,5,0,0,0,0,1
 Northamptonshire,0,0,1,0,0,0,0,1
 Northumberland North,0,0,1,0,0,0,0,0
 Northumberland South,0,0,1,0,0,0,0,0
